@@ -1,6 +1,7 @@
 import React from "react";
 import "./scss/App.scss";
 import TodoPanel from "./components/TodoPanel/TodoPanel";
+import TodoList from "./components/TodoList/TodoList";
 const App = () => {
   return (
     <div className="wrapper">
@@ -9,6 +10,7 @@ const App = () => {
       </div>
       <div className="content">
         <TodoPanel />
+        <TodoList />
       </div>
     </div>
   );
