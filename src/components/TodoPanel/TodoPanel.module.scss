@@ -1,0 +1,38 @@
+.todo_panel {
+  display: flex;
+  background-color: #fefefe;
+  height: 64px;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  input {
+    flex: 1;
+    font-size: 26px;
+    width: 100%;
+    background-color: #fefefe;
+    border: none;
+    &::placeholder {
+      opacity: 0.5;
+      font-style: italic;
+    }
+  }
+}
+
+.button {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  .arrow {
+    height: 20px;
+    width: 20px;
+    transform: rotate(180deg);
+    opacity: 0.4;
+  }
+  &:hover {
+    .arrow {
+      opacity: 0.6;
+    }
+  }
+}
