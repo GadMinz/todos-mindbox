@@ -4,13 +4,19 @@ import { Todo } from "../../../App";
 
 interface TodoItemProps {
   todo: Todo;
+  checkTodo: (id: number) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo, checkTodo }) => {
   return (
     <div className={s.todo}>
       <div className={s.checkbox}>
-        <input id={`check${todo.id}`} type="checkbox" />
+        <input
+          id={`check${todo.id}`}
+          type="checkbox"
+          checked={todo.checked}
+          onChange={() => checkTodo(todo.id)}
+        />
         <label htmlFor={`check${todo.id}`}>
           <svg
             width="22"

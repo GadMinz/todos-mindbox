@@ -17,6 +17,7 @@ const TodoPanel: React.FC<TodoPanelProps> = ({ addTodo }) => {
       return;
     }
     addTodo(todo);
+    setTodo("");
   };
   return (
     <div className={s.todo_panel}>

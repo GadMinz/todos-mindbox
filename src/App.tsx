@@ -21,6 +21,18 @@ const App = () => {
     const id = todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
     setTodos([...todos, { id, name, checked: false }]);
   };
+
+  const checkTodo = (id: number) => {
+    setTodos(
+      todos.map((todo: Todo) => {
+        if (todo.id === id) {
+          return { ...todo, checked: !todo.checked };
+        }
+        return todo;
+      })
+    );
+  };
+
   return (
     <div className="wrapper">
       <div className="header">
@@ -28,7 +40,7 @@ const App = () => {
       </div>
       <div className="content">
         <TodoPanel addTodo={addTodo} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} checkTodo={checkTodo}/>
       </div>
     </div>
   );
