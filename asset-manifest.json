@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/todos-mindbox/static/css/main.e5401174.css",
+    "main.js": "/todos-mindbox/static/js/main.e6ea5645.js",
+    "index.html": "/todos-mindbox/index.html",
+    "static/media/arrow.svg": "/todos-mindbox/static/media/arrow.a12424a88cdda23d967fa89474b2ff81.svg",
+    "main.e5401174.css.map": "/todos-mindbox/static/css/main.e5401174.css.map",
+    "main.e6ea5645.js.map": "/todos-mindbox/static/js/main.e6ea5645.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e5401174.css",
+    "static/js/main.e6ea5645.js"
+  ]
+}
