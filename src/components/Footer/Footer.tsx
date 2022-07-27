@@ -1,14 +1,20 @@
 import React from "react";
 import s from "./Footer.module.scss";
+import Filters from "./Filters/Filters";
+import { Filter } from "../../App";
 
-interface FooterProps {}
+interface FooterProps {
+  changeFilter: (filter: Filter) => void;
+  filter: Filter;
+  itemsLeft: number;
+}
 
-const Footer: React.FC<FooterProps> = () => {
+const Footer: React.FC<FooterProps> = ({ changeFilter, filter, itemsLeft }) => {
   return (
     <div className={s.footer}>
-      <div>Items left</div>
-      <div>Filters</div>
-      <div>Clear</div>
+      <div className={s.items_left}>{itemsLeft} items left</div>
+      <Filters changeFilter={changeFilter} filter={filter} />
+      <div className={s.clear}>Clear completed</div>
     </div>
   );
 };

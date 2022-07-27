@@ -1,0 +1,13 @@
+.filter {
+  padding: 5px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover{
+    background: #e9dad9;
+  }
+}
+
+.active {
+  border: 1px solid #e9dad9;
+}

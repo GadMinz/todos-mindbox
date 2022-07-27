@@ -1,8 +1,18 @@
 .footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
   padding: 10px;
   border-top: 1px solid #efefef;
   color: #7f7f7f;
+}
+
+.items_left {
+  flex: 1;
+}
+
+.clear {
+  flex: 1;
+  text-align: end;
 }

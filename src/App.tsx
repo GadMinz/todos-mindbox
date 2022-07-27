@@ -10,6 +10,8 @@ export type Todo = {
   checked: boolean;
 };
 
+export type Filter = "All" | "Active" | "Completed";
+
 const DEFAULT_TODO_LIST = [
   { id: 1, name: "Тестовое задание", checked: false },
   { id: 2, name: "Прекрасный код", checked: true },
@@ -18,6 +20,26 @@ const DEFAULT_TODO_LIST = [
 
 const App = () => {
   const [todos, setTodos] = React.useState(DEFAULT_TODO_LIST);
+  const [filter, setFilter] = React.useState<Filter>("All");
+  const [filteredTodo, setFilteredTodos] = React.useState(DEFAULT_TODO_LIST);
+  const [itemsLeft, setItemsLeft] = React.useState(0);
+  React.useEffect(() => {
+    switch (filter) {
+      case "Active":
+        setFilteredTodos(todos.filter((todo) => !todo.checked));
+        break;
+      case "Completed":
+        setFilteredTodos(todos.filter((todo) => todo.checked));
+        break;
+      default:
+        setFilteredTodos(todos);
+    }
+  }, [filter, todos]);
+
+  React.useEffect(() => {
+    setItemsLeft(todos.filter((todo) => !todo.checked).length);
+  }, [todos]);
+
   const addTodo = (name: string) => {
     const id = todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
     setTodos([...todos, { id, name, checked: false }]);
@@ -34,6 +56,10 @@ const App = () => {
     );
   };
 
+  const changeFilter = (filter: Filter) => {
+    setFilter(filter);
+  };
+
   return (
     <div className="wrapper">
       <div className="header">
@@ -41,8 +67,12 @@ const App = () => {
       </div>
       <div className="content">
         <TodoPanel addTodo={addTodo} />
-        <TodoList todos={todos} checkTodo={checkTodo} />
-        <Footer />
+        <TodoList todos={filteredTodo} checkTodo={checkTodo} />
+        <Footer
+          itemsLeft={itemsLeft}
+          changeFilter={changeFilter}
+          filter={filter}
+        />
       </div>
     </div>
   );
