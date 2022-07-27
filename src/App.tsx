@@ -2,6 +2,7 @@ import React from "react";
 import "./scss/App.scss";
 import TodoPanel from "./components/TodoPanel/TodoPanel";
 import TodoList from "./components/TodoList/TodoList";
+import Footer from "./components/Footer/Footer";
 
 export type Todo = {
   id: number;
@@ -40,7 +41,8 @@ const App = () => {
       </div>
       <div className="content">
         <TodoPanel addTodo={addTodo} />
-        <TodoList todos={todos} checkTodo={checkTodo}/>
+        <TodoList todos={todos} checkTodo={checkTodo} />
+        <Footer />
       </div>
     </div>
   );
