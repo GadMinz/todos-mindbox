@@ -15,4 +15,8 @@
 .clear {
   flex: 1;
   text-align: end;
+  cursor: pointer;
+  &:hover {
+    color: darken(#7f7f7f, 20%);
+  }
 }

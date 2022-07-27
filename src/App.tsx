@@ -60,6 +60,11 @@ const App = () => {
     setFilter(filter);
   };
 
+  const clearCompleted = () => {
+    window.confirm("Delete completed todos?") &&
+      setTodos(todos.filter((todo) => !todo.checked));
+  };
+
   return (
     <div className="wrapper">
       <div className="header">
@@ -72,6 +77,7 @@ const App = () => {
           itemsLeft={itemsLeft}
           changeFilter={changeFilter}
           filter={filter}
+          clearCompleted={clearCompleted}
         />
       </div>
     </div>

@@ -7,14 +7,22 @@ interface FooterProps {
   changeFilter: (filter: Filter) => void;
   filter: Filter;
   itemsLeft: number;
+  clearCompleted: () => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ changeFilter, filter, itemsLeft }) => {
+const Footer: React.FC<FooterProps> = ({
+  changeFilter,
+  filter,
+  itemsLeft,
+  clearCompleted,
+}) => {
   return (
     <div className={s.footer}>
       <div className={s.items_left}>{itemsLeft} items left</div>
       <Filters changeFilter={changeFilter} filter={filter} />
-      <div className={s.clear}>Clear completed</div>
+      <div className={s.clear} onClick={clearCompleted}>
+        Clear completed
+      </div>
     </div>
   );
 };
